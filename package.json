@@ -1,13 +1,10 @@
 {
-  "name": "playground-ts",
+  "name": "@lsby/ts-hkt",
   "version": "0.0.0",
   "type": "module",
   "exports": {
     "require": "./dist/cjs/index.cjs",
     "import": "./dist/esm/index.js"
-  },
-  "bin": {
-    "playground-ts-bin": "dist/esm/index.js"
   },
   "files": [
     "dist"
@@ -28,9 +25,9 @@
   "dependencies": {},
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
-    "@types/node": "^20.12.10",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "bumpp": "^9.4.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
@@ -39,7 +36,7 @@
     "prettier": "3.2.5",
     "prettier-plugin-packagejson": "^2.5.0",
     "tsup": "^8.0.2",
-    "tsx": "^4.9.3",
+    "tsx": "^4.11.0",
     "typescript": "^5.4.5"
   }
 }
