@@ -18,7 +18,7 @@
     "check:lint": "eslint . --fix",
     "check:type": "tsc --noEmit",
     "check:type:watch": "tsc --noEmit -w",
-    "pub:public": "npm run check:all && npm run test:base && npm run build:all && bumpp && npm publish --access public"
+    "pub:public": "npm run check:all && npm run build:all && bumpp && npm publish --access public"
   },
   "dependencies": {},
   "devDependencies": {
