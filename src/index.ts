@@ -13,7 +13,7 @@ export type 类型调用<F extends HktType, A> = F['参数长度'] extends 0
     : F & {
         _参数容器: Record<取对象键们<F['_参数容器']>['length'], A>
       }
-export type 宽泛的的类型调用<F, A> = F extends HktType
+export type 宽泛的类型调用<F, A> = F extends HktType
   ? F['参数长度'] extends 0
     ? F['结果']
     : 数组长度加一<取对象键们<F['_参数容器']>> extends F['参数长度']
@@ -47,7 +47,7 @@ export type 宽泛的类型调用数组<F, A extends any[]> = F extends HktType
   : never
 
 export type 从高阶类型推断内容类型<F extends HktType, A> = A extends 类型调用<F, infer X> ? X : never
-export type 宽泛的从高阶类型推断内容类型<F, A> = A extends 宽泛的的类型调用<F, infer X> ? X : never
+export type 宽泛的从高阶类型推断内容类型<F, A> = A extends 宽泛的类型调用<F, infer X> ? X : never
 
 type 数组长度加一<Arr extends any[]> = [...Arr, '占位符']['length']
 
