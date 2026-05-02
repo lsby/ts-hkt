@@ -7,26 +7,18 @@ export interface HktType {
 export type 类型调用<F extends HktType, A> = F['参数长度'] extends 0
   ? F['结果']
   : 数组长度加一<取对象键们<F['_参数容器']>> extends F['参数长度']
-    ? (F & {
-        参数: [...取对象值们<F['_参数容器']>, A]
-      })['结果']
-    : F & {
-        _参数容器: Record<取对象键们<F['_参数容器']>['length'], A>
-      }
+    ? (F & { 参数: [...取对象值们<F['_参数容器']>, A] })['结果']
+    : F & { _参数容器: Record<取对象键们<F['_参数容器']>['length'], A> }
 export type 宽泛的类型调用<F, A> = F extends HktType
   ? F['参数长度'] extends 0
     ? F['结果']
     : 数组长度加一<取对象键们<F['_参数容器']>> extends F['参数长度']
-      ? (F & {
-          参数: [...取对象值们<F['_参数容器']>, A]
-        })['结果']
-      : F & {
-          _参数容器: Record<取对象键们<F['_参数容器']>['length'], A>
-        }
+      ? (F & { 参数: [...取对象值们<F['_参数容器']>, A] })['结果']
+      : F & { _参数容器: Record<取对象键们<F['_参数容器']>['length'], A> }
   : never
 
 export type 类型调用数组<F extends HktType, A extends any[]> = A extends []
-  ? 类型调用<F, A>
+  ? F['结果']
   : A extends [infer x, ...infer xs]
     ? 类型调用<F, x> extends infer Fx
       ? Fx extends HktType
@@ -36,9 +28,9 @@ export type 类型调用数组<F extends HktType, A extends any[]> = A extends [
     : never
 export type 宽泛的类型调用数组<F, A extends any[]> = F extends HktType
   ? A extends []
-    ? 类型调用<F, A>
+    ? F['结果']
     : A extends [infer x, ...infer xs]
-      ? 类型调用<F, x> extends infer Fx
+      ? 宽泛的类型调用<F, x> extends infer Fx
         ? Fx extends HktType
           ? 类型调用数组<Fx, xs>
           : Fx

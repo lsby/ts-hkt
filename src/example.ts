@@ -60,8 +60,8 @@ interface 函子<F extends HktType, A> {
 // 一个具体的类型实例
 class 我的容器<A> implements 函子<我的容器高阶类型, A> {
   declare [对应高阶类型]: 我的容器高阶类型
-constructor(private a: A) {}
-  
+  constructor(private a: A) {}
+
   map<B>(fn: (a: A) => B): 我的容器<B> {
     return new 我的容器(fn(this.a))
   }
